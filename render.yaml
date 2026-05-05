@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ds2api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: DS2API_ADMIN_KEY
+        value: admin
+      - key: PORT
+        value: "10000"
+    healthCheckPath: /healthz
+    autoDeploy: false
