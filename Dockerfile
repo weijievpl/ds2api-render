@@ -1,10 +1,8 @@
 FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates curl tar python3 python3-pip \
+    ca-certificates curl tar python3 \
     && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install pymongo --break-system-packages
 
 WORKDIR /app
 
