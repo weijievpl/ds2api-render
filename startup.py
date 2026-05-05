@@ -40,9 +40,9 @@ def main():
     config = fetch_config()
 
     if config:
-        with open("/app/data/config.json", "w") as f:
+        with open("/data/config.json", "w") as f:
             json.dump(config, f, indent=2)
-        print("✅ 配置已写入 /app/data/config.json")
+        print("✅ 配置已写入 /data/config.json")
     else:
         # 尝试用环境变量兜底
         env_config = os.environ.get("DS2API_CONFIG_JSON")
@@ -50,7 +50,7 @@ def main():
             print("⚠️ 使用环境变量 DS2API_CONFIG_JSON 兜底")
             try:
                 config = json.loads(env_config)
-                with open("/app/data/config.json", "w") as f:
+                with open("/data/config.json", "w") as f:
                     json.dump(config, f, indent=2)
             except:
                 print("❌ 环境变量解析失败")
